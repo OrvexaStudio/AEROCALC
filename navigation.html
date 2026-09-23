@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation | AERO CALC</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <div class="brand">
+        <div class="brand-name">AERO CALC</div>
+        <div class="brand-subtitle">Pilot Calculator</div>
+    </div>
+
+    <nav class="nav">
+        <a href="index.html">Dashboard</a>
+        <a href="wind.html">Wind Triangle</a>
+        <a href="navigation.html" class="active">Navigation</a>
+        <a href="altitude.html">Altitude</a>
+        <a href="speed.html">Speed</a>
+        <a href="climb-descent.html">Climb / Descent</a>
+        <a href="fuel.html">Fuel</a>
+        <a href="rhumbline.html">Rhumb Line</a>
+        <a href="great-circle.html">Great Circle</a>
+        <a href="metar.html">METAR / TAF</a>
+        <a href="time.html">Time</a>
+        <a href="conversions.html">Conversions</a>
+    </nav>
+</aside>
+
+<main class="main-content">
+
+    <header class="topbar">
+        <div>
+            <div class="eyebrow">NAVIGATION</div>
+            <h1>Navigation Calculator</h1>
+            <p>Calculate time, distance, speed and basic navigation parameters.</p>
+        </div>
+    </header>
+
+    <section class="calculator-grid">
+
+        <div class="card calculator-card">
+
+            <div class="card-header">
+                <h2>Flight Data</h2>
+                <p>Enter the values you know.</p>
+            </div>
+
+            <div class="form-grid">
+
+                <div class="input-group">
+                    <label for="distance">Distance</label>
+                    <div class="input-with-unit">
+                        <input type="number" id="distance" step="any" min="0">
+                        <span>NM</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="groundspeed">Groundspeed</label>
+                    <div class="input-with-unit">
+                        <input type="number" id="groundspeed" step="any" min="0">
+                        <span>kt</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="time-hours">Time</label>
+                    <div class="time-inputs">
+                        <input type="number" id="time-hours" min="0" step="1" placeholder="hh">
+                        <span>:</span>
+                        <input type="number" id="time-minutes" min="0" max="59" step="1" placeholder="mm">
+                    </div>
+                </div>
+
+            </div>
+
+            <button id="calculate-button" class="primary-button">
+                Calculate
+            </button>
+
+            <div id="error-message" class="error-message"></div>
+
+        </div>
+
+
+        <div class="card results-card">
+
+            <div class="card-header">
+                <h2>Results</h2>
+                <p>Calculated navigation values.</p>
+            </div>
+
+            <div class="results-grid">
+
+                <div class="result-box">
+                    <span class="result-label">Distance</span>
+                    <strong id="distance-result">—</strong>
+                    <small>NM</small>
+                </div>
+
+                <div class="result-box">
+                    <span class="result-label">Groundspeed</span>
+                    <strong id="groundspeed-result">—</strong>
+                    <small>kt</small>
+                </div>
+
+                <div class="result-box">
+                    <span class="result-label">Time</span>
+                    <strong id="time-result">—</strong>
+                    <small>hh:mm</small>
+                </div>
+
+                <div class="result-box">
+                    <span class="result-label">Time</span>
+                    <strong id="decimal-time-result">—</strong>
+                    <small>hours</small>
+                </div>
+
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">Calculation</div>
+                <div id="formula-text">
+                    Enter at least two values to calculate the third.
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<script src="js/navigation.js"></script>
+
+</body>
+</html>
