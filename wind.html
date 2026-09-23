@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wind Triangle — AERO CALC</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-mark">AC</div>
+            <div>
+                <h1>AERO CALC</h1>
+                <span>Pilot Calculator</span>
+            </div>
+        </div>
+
+        <nav>
+
+            <a href="index.html">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <div class="nav-title">NAVIGATION</div>
+
+            <a href="wind.html" class="active">
+                <span>↗</span>
+                Wind Triangle
+            </a>
+
+            <a href="#">
+                <span>◎</span>
+                Navigation
+            </a>
+
+            <a href="#">
+                <span>◈</span>
+                Rhumb Line
+            </a>
+
+            <a href="#">
+                <span>◉</span>
+                Great Circle
+            </a>
+
+            <div class="nav-title">FLIGHT</div>
+
+            <a href="#">
+                <span>↕</span>
+                Altitude
+            </a>
+
+            <a href="#">
+                <span>⌁</span>
+                Speed
+            </a>
+
+            <a href="#">
+                <span>↗</span>
+                Climb / Descent
+            </a>
+
+            <a href="#">
+                <span>◒</span>
+                Fuel
+            </a>
+
+            <div class="nav-title">TOOLS</div>
+
+            <a href="#">
+                <span>MET</span>
+                METAR / TAF
+            </a>
+
+            <a href="#">
+                <span>◷</span>
+                Time
+            </a>
+
+            <a href="#">
+                <span>⇄</span>
+                Conversions
+            </a>
+
+        </nav>
+
+        <div class="sidebar-footer">
+            <span>OFFLINE CALCULATOR</span>
+            <small>No API • Local calculations</small>
+        </div>
+
+    </aside>
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div>
+                <span class="eyebrow">NAVIGATION</span>
+                <h2>Wind Triangle</h2>
+            </div>
+
+            <div class="status">
+                <span class="status-dot"></span>
+                CALCULATION ENGINE
+            </div>
+
+        </header>
+
+        <section class="calculator-layout">
+
+            <div class="calculator-main">
+
+                <div class="page-intro">
+                    <span class="eyebrow">WIND CORRECTION</span>
+
+                    <h3>Wind Triangle Calculator</h3>
+
+                    <p>
+                        Inserisci True Course, TAS e vento per determinare
+                        automaticamente WCA, True Heading, Groundspeed
+                        e componenti del vento.
+                    </p>
+                </div>
+
+                <div class="panel">
+
+                    <div class="panel-header">
+                        <div>
+                            <span class="eyebrow">INPUT</span>
+                            <h4>Flight data</h4>
+                        </div>
+                    </div>
+
+                    <div class="input-grid">
+
+                        <div class="input-group">
+                            <label for="tc">
+                                True Course
+                                <span>°T</span>
+                            </label>
+
+                            <input
+                                type="number"
+                                id="tc"
+                                placeholder="240"
+                                min="0"
+                                max="360"
+                                step="0.1"
+                            >
+                        </div>
+
+                        <div class="input-group">
+                            <label for="tas">
+                                True Airspeed
+                                <span>kt</span>
+                            </label>
+
+                            <input
+                                type="number"
+                                id="tas"
+                                placeholder="120"
+                                min="0"
+                                step="0.1"
+                            >
+                        </div>
+
+                        <div class="input-group">
+                            <label for="wind-direction">
+                                Wind Direction
+                                <span>°T</span>
+                            </label>
+
+                            <input
+                                type="number"
+                                id="wind-direction"
+                                placeholder="280"
+                                min="0"
+                                max="360"
+                                step="0.1"
+                            >
+                        </div>
+
+                        <div class="input-group">
+                            <label for="wind-speed">
+                                Wind Speed
+                                <span>kt</span>
+                            </label>
+
+                            <input
+                                type="number"
+                                id="wind-speed"
+                                placeholder="25"
+                                min="0"
+                                step="0.1"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="wind-mode">
+
+                        <label class="radio-option">
+                            <input
+                                type="radio"
+                                name="wind-mode"
+                                value="from"
+                                checked
+                            >
+                            <span>
+                                <strong>Wind FROM</strong>
+                                <small>Direzione meteorologica</small>
+                            </span>
+                        </label>
+
+                        <label class="radio-option">
+                            <input
+                                type="radio"
+                                name="wind-mode"
+                                value="to"
+                            >
+                            <span>
+                                <strong>Wind TO</strong>
+                                <small>Direzione vettoriale</small>
+                            </span>
+                        </label>
+
+                    </div>
+
+                    <div id="error-message" class="error-message"></div>
+
+                    <button id="calculate-button" class="calculate-button">
+                        Calculate Wind Triangle
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+            <aside class="results-panel">
+
+                <div class="results-header">
+                    <span class="eyebrow">RESULTS</span>
+                    <h4>Calculated values</h4>
+                </div>
+
+                <div id="empty-results" class="empty-results">
+                    <div class="empty-icon">∿</div>
+                    <p>
+                        Inserisci i dati del vento e premi
+                        <strong>Calculate</strong>.
+                    </p>
+                </div>
+
+                <div id="results" class="results hidden">
+
+                    <div class="result-primary">
+                        <span>TRUE HEADING</span>
+                        <strong id="heading-result">—</strong>
+                        <small>°T</small>
+                    </div>
+
+                    <div class="result-primary">
+                        <span>GROUND SPEED</span>
+                        <strong id="gs-result">—</strong>
+                        <small>kt</small>
+                    </div>
+
+                    <div class="result-row">
+                        <span>Wind Correction Angle</span>
+                        <strong id="wca-result">—</strong>
+                    </div>
+
+                    <div class="result-row">
+                        <span>Crosswind Component</span>
+                        <strong id="crosswind-result">—</strong>
+                    </div>
+
+                    <div class="result-row">
+                        <span>Head / Tailwind</span>
+                        <strong id="headwind-result">—</strong>
+                    </div>
+
+                    <div class="result-row">
+                        <span>Wind Angle</span>
+                        <strong id="wind-angle-result">—</strong>
+                    </div>
+
+                    <div class="formula-box">
+
+                        <span class="eyebrow">METHOD</span>
+
+                        <p id="formula-text">
+                            —
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </section>
+
+    </main>
+
+    <script src="js/wind.js"></script>
+
+</body>
+</html>
