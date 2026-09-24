@@ -928,3 +928,429 @@ input:focus {
     }
 
 }
+
+/* =========================================
+   WIND TRIANGLE PAGE
+========================================= */
+
+.calculator-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 330px;
+    gap: 18px;
+    margin-top: 32px;
+}
+
+.calculator-main {
+    min-width: 0;
+}
+
+.page-intro {
+    margin-bottom: 24px;
+}
+
+.page-intro h3 {
+    margin-top: 7px;
+    font-size: 28px;
+    font-weight: 650;
+    letter-spacing: -0.5px;
+}
+
+.page-intro p {
+    max-width: 720px;
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* INPUT GRID */
+
+.input-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.input-group label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: #b7c0cc;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.input-group label span {
+    color: #596371;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+
+/* WIND MODE */
+
+.wind-mode {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+
+    margin-top: 22px;
+}
+
+.radio-option {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 13px 14px;
+
+    background: #090d13;
+
+    border: 1px solid var(--border);
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.radio-option:hover {
+    border-color: #354255;
+}
+
+.radio-option input {
+    width: 15px;
+    height: 15px;
+
+    margin: 0;
+
+    accent-color: var(--accent);
+}
+
+.radio-option span {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.radio-option strong {
+    color: var(--text);
+
+    font-size: 11px;
+    font-weight: 650;
+}
+
+.radio-option small {
+    color: var(--muted);
+
+    font-size: 9px;
+}
+
+
+/* CALCULATE BUTTON */
+
+.calculate-button {
+    width: 100%;
+
+    min-height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 22px;
+
+    padding: 0 18px;
+
+    border: 0;
+    border-radius: 9px;
+
+    background: var(--accent);
+    color: #07101e;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.calculate-button:hover {
+    background: #91b8ff;
+    transform: translateY(-1px);
+}
+
+.calculate-button span {
+    font-size: 16px;
+}
+
+
+/* RESULTS PANEL */
+
+.results-panel {
+    align-self: start;
+
+    padding: 22px;
+
+    background: var(--panel);
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+}
+
+.results-header {
+    padding-bottom: 16px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.results-header h4 {
+    margin-top: 5px;
+
+    font-size: 16px;
+    font-weight: 650;
+}
+
+
+/* EMPTY RESULTS */
+
+.empty-results {
+    min-height: 330px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px 15px;
+}
+
+.empty-icon {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 15px;
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    background: rgba(121, 169, 255, 0.04);
+
+    color: var(--accent);
+
+    font-size: 24px;
+}
+
+.empty-results p {
+    max-width: 190px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.empty-results strong {
+    color: var(--text);
+}
+
+
+/* RESULTS */
+
+.results {
+    padding-top: 16px;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* PRIMARY RESULTS */
+
+.result-primary {
+    padding: 17px;
+
+    margin-bottom: 9px;
+
+    background: #090d13;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+}
+
+.result-primary span {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+}
+
+.result-primary strong {
+    display: inline-block;
+
+    margin-top: 5px;
+
+    color: var(--text);
+
+    font-size: 27px;
+    font-weight: 650;
+}
+
+.result-primary small {
+    margin-left: 4px;
+
+    color: #596371;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+/* RESULT ROWS */
+
+.result-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 43px;
+
+    padding: 0 4px;
+
+    border-bottom: 1px solid rgba(32, 41, 54, 0.7);
+}
+
+.result-row span {
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+.result-row strong {
+    color: var(--text);
+
+    font-size: 12px;
+    font-weight: 650;
+}
+
+
+/* METHOD */
+
+.results-panel .formula-box {
+    margin-top: 16px;
+}
+
+.results-panel .formula-box p {
+    margin-top: 8px;
+
+    color: #aeb7c4;
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        monospace;
+
+    font-size: 10px;
+
+    line-height: 1.7;
+}
+
+
+/* ERROR */
+
+.calculator-main .error-message {
+    display: none;
+
+    margin-top: 14px;
+    padding: 11px 13px;
+
+    background: rgba(255, 115, 115, 0.07);
+
+    border: 1px solid rgba(255, 115, 115, 0.25);
+
+    border-radius: 8px;
+
+    color: var(--danger);
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   NAVIGATION PAGE
+========================================= */
+
+.calculator-layout .panel {
+    min-width: 0;
+}
+
+.calculator-layout .panel-header h3 {
+    margin-top: 5px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .calculator-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .results-panel {
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .input-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .wind-mode {
+        grid-template-columns: 1fr;
+    }
+
+    .page-intro h3 {
+        font-size: 24px;
+    }
+
+}
